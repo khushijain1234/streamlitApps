@@ -1,11 +1,13 @@
 import streamlit as st 
 import os 
 import google.generativeai as genai 
+from dotenv import load_dotenv, dotenv_values
 
 
 st.title("Chatster")
-
-os.environ['GOOGLE_API_KEY'] = "AIzaSyBoAvbBC0lynhM4jQQ6y4Pd19BYhOHktwE"
+load_dotenv()
+API_KEY = os.getenv("GOOGLE_API_KEY")
+os.environ['GOOGLE_API_KEY'] = API_KEY
 genai.configure(api_key = os.environ['GOOGLE_API_KEY'])
 
 ##Select the model
